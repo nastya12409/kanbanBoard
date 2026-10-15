@@ -22,9 +22,7 @@ describe('Card', () => {
   });
 
   it('підсвічує прострочену картку (data-overdue)', () => {
-    render(
-      <Card card={{ ...baseCard, deadline: '2000-01-01' }} onOpen={() => {}} />
-    );
+    render(<Card card={{ ...baseCard, deadline: '2000-01-01' }} onOpen={() => {}} />);
     const article = screen.getByText('Зробити макет').closest('article');
     expect(article).toHaveAttribute('data-overdue', 'true');
     expect(article).toHaveAttribute('data-urgency', 'overdue');

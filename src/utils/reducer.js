@@ -111,7 +111,7 @@ export function reducer(state, action) {
               col.cardIds.includes(action.cardId)
                 ? { ...col, cardIds: col.cardIds.filter((x) => x !== action.cardId) }
                 : col,
-            ])
+            ]),
           ),
         };
       });

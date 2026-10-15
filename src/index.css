@@ -48,7 +48,12 @@ body {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   line-height: 1.45;
 }
 
@@ -121,7 +126,9 @@ main {
   color: var(--text);
   border-radius: 8px;
   padding: 7px 14px;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
 
 .btn:hover:not(:disabled) {
@@ -438,7 +445,9 @@ main {
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
-  transition: border-color 0.15s, transform 0.1s;
+  transition:
+    border-color 0.15s,
+    transform 0.1s;
 }
 
 .card:hover {

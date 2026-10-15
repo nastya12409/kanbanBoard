@@ -24,17 +24,8 @@ export function Modal({ title, onClose, children }) {
   }, [onClose]);
 
   return createPortal(
-    <div
-      className="overlay"
-      onMouseDown={(e) => e.target === e.currentTarget && onClose()}
-    >
-      <div
-        ref={ref}
-        className="modal"
-        role="dialog"
-        aria-modal="true"
-        aria-label={title}
-      >
+    <div className="overlay" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+      <div ref={ref} className="modal" role="dialog" aria-modal="true" aria-label={title}>
         <div className="modal-head">
           <h2 className="modal-title">{title}</h2>
           <button type="button" className="icon-btn" onClick={onClose} aria-label="Закрити">
@@ -44,6 +35,6 @@ export function Modal({ title, onClose, children }) {
         {children}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

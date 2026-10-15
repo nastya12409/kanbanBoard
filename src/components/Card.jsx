@@ -18,7 +18,10 @@ const Card = memo(function Card({ card, onOpen }) {
     >
       <div className="card-top">
         <h4 className="card-title">{card.title}</h4>
-        <span className={`pill priority-${card.priority}`} title={`Пріоритет: ${PRIORITY_LABEL[card.priority]}`}>
+        <span
+          className={`pill priority-${card.priority}`}
+          title={`Пріоритет: ${PRIORITY_LABEL[card.priority]}`}
+        >
           {card.priority}
         </span>
       </div>

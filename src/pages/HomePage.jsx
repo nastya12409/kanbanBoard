@@ -59,12 +59,7 @@ export default function HomePage() {
 
       <label className="btn ghost file-btn">
         Імпортувати JSON
-        <input
-          type="file"
-          accept="application/json"
-          onChange={importFile}
-          hidden
-        />
+        <input type="file" accept="application/json" onChange={importFile} hidden />
       </label>
       {error && (
         <p role="alert" className="error">

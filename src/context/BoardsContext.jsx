@@ -18,10 +18,7 @@ function loadState() {
 // Провайдер данных: держит reducer с историей undo/redo
 // и сохраняет present в localStorage.
 export function BoardsProvider({ children }) {
-  const { state, dispatch, undo, redo, canUndo, canRedo } = useUndoRedo(
-    reducer,
-    loadState
-  );
+  const { state, dispatch, undo, redo, canUndo, canRedo } = useUndoRedo(reducer, loadState);
 
   // Сохраняем только present — историю в storage не пишем
   useEffect(() => {
@@ -47,10 +44,7 @@ export function BoardsProvider({ children }) {
     return () => window.removeEventListener('keydown', onKey);
   }, [undo, redo]);
 
-  const history = useMemo(
-    () => ({ undo, redo, canUndo, canRedo }),
-    [undo, redo, canUndo, canRedo]
-  );
+  const history = useMemo(() => ({ undo, redo, canUndo, canRedo }), [undo, redo, canUndo, canRedo]);
 
   return (
     <DispatchContext.Provider value={dispatch}>

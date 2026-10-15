@@ -8,8 +8,7 @@ const historyReducer = withHistory(reducer);
 
 const init = () => ({ past: [], present: initialState, future: [] });
 
-const addBoard = (history, title) =>
-  historyReducer(history, { type: 'BOARD_ADD', title });
+const addBoard = (history, title) => historyReducer(history, { type: 'BOARD_ADD', title });
 
 describe('withHistory: undo / redo', () => {
   it('дія + UNDO = початковий стан, REDO = змінений', () => {

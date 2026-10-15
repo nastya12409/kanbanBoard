@@ -18,9 +18,7 @@ import { useBoardsDispatch } from '../context/contexts';
 
 // Какой колонке принадлежит id (колонка или карточка)
 const findColumnId = (board, id) =>
-  board.columns[id]
-    ? id
-    : board.columnOrder.find((c) => board.columns[c].cardIds.includes(id));
+  board.columns[id] ? id : board.columnOrder.find((c) => board.columns[c].cardIds.includes(id));
 
 export default function Board({ board, filters }) {
   const dispatch = useBoardsDispatch();
@@ -30,12 +28,12 @@ export default function Board({ board, filters }) {
   const sensors = useSensors(
     // distance не даёт клику по карточке стать перетаскиванием
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
-    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
 
   const act = useCallback(
     (action) => dispatch({ boardId: board.id, ...action }),
-    [dispatch, board.id]
+    [dispatch, board.id],
   );
 
   const handleDragEnd = ({ active, over }) => {
@@ -59,7 +57,7 @@ export default function Board({ board, filters }) {
 
   const filtersKey = useMemo(
     () => JSON.stringify(filters) === JSON.stringify({ q: '', priority: '', tag: '', due: '' }),
-    [filters]
+    [filters],
   );
 
   return (
@@ -85,9 +83,7 @@ export default function Board({ board, filters }) {
               filters={filters}
               onOpen={setOpenCardId}
               onAddCard={(title) => act({ type: 'CARD_ADD', columnId: colId, title })}
-              onRenameColumn={(title) =>
-                act({ type: 'COLUMN_RENAME', columnId: colId, title })
-              }
+              onRenameColumn={(title) => act({ type: 'COLUMN_RENAME', columnId: colId, title })}
               onDeleteColumn={() => act({ type: 'COLUMN_DELETE', columnId: colId })}
             />
           ))}
@@ -104,9 +100,7 @@ export default function Board({ board, filters }) {
           </button>
 
           <DragOverlay>
-            {activeId && board.cards[activeId] ? (
-              <Card card={board.cards[activeId]} />
-            ) : null}
+            {activeId && board.cards[activeId] ? <Card card={board.cards[activeId]} /> : null}
           </DragOverlay>
         </div>
       </DndContext>

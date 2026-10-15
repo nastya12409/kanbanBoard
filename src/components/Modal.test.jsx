@@ -9,7 +9,7 @@ describe('Modal', () => {
     render(
       <Modal title="Картка" onClose={onClose}>
         <p>Текст</p>
-      </Modal>
+      </Modal>,
     );
     await userEvent.keyboard('{Escape}');
     expect(onClose).toHaveBeenCalledTimes(1);
@@ -19,7 +19,7 @@ describe('Modal', () => {
     render(
       <Modal title="Картка" onClose={() => {}}>
         <p>Текст</p>
-      </Modal>
+      </Modal>,
     );
     const dialog = screen.getByRole('dialog');
     expect(dialog).toHaveAttribute('aria-modal', 'true');
@@ -31,7 +31,7 @@ describe('Modal', () => {
     render(
       <Modal title="Картка" onClose={onClose}>
         <p>Текст</p>
-      </Modal>
+      </Modal>,
     );
     await userEvent.click(screen.getByRole('button', { name: 'Закрити' }));
     expect(onClose).toHaveBeenCalledTimes(1);

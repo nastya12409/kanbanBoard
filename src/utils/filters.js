@@ -3,8 +3,7 @@
 // Формат YYYY-MM-DD в локальном часовом поясе
 export const today = () => new Date().toLocaleDateString('sv-SE');
 
-export const isOverdue = (deadline) =>
-  Boolean(deadline) && deadline < today();
+export const isOverdue = (deadline) => Boolean(deadline) && deadline < today();
 
 // ===== МОЯ ФИЧА: напоминания о дедлайнах =====
 // Сколько дней осталось до дедлайна (0 — сегодня, -N — просрочено)

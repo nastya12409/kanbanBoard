@@ -35,11 +35,15 @@ describe('BoardStats (моя фіча: статистика)', () => {
   });
 
   it('не падає на порожній дошці', () => {
-    const empty = { ...board, cards: {}, columns: {
-      col1: { id: 'col1', title: 'To Do', cardIds: [] },
-      col2: { id: 'col2', title: 'In Progress', cardIds: [] },
-      col3: { id: 'col3', title: 'Done', cardIds: [] },
-    }};
+    const empty = {
+      ...board,
+      cards: {},
+      columns: {
+        col1: { id: 'col1', title: 'To Do', cardIds: [] },
+        col2: { id: 'col2', title: 'In Progress', cardIds: [] },
+        col3: { id: 'col3', title: 'Done', cardIds: [] },
+      },
+    };
     render(<BoardStats board={empty} />);
     expect(screen.getByText('0/0 виконано (0%)')).toBeInTheDocument();
   });

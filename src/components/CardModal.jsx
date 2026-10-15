@@ -75,7 +75,12 @@ export function CardModal({ card, onClose, onSave, onDelete }) {
         </div>
 
         <label htmlFor="c-tags">Теги (через кому)</label>
-        <input id="c-tags" value={form.tags} onChange={set('tags')} placeholder="bug, design, urgent" />
+        <input
+          id="c-tags"
+          value={form.tags}
+          onChange={set('tags')}
+          placeholder="bug, design, urgent"
+        />
 
         <label htmlFor="c-assignee">Виконавець</label>
         <input id="c-assignee" value={form.assignee} onChange={set('assignee')} />

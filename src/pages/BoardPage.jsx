@@ -45,9 +45,11 @@ export default function BoardPage() {
         </div>
       </div>
 
-      <Board board={board} filters={filters} onRename={(title) =>
-        dispatch({ type: 'BOARD_RENAME', boardId: board.id, title })
-      } />
+      <Board
+        board={board}
+        filters={filters}
+        onRename={(title) => dispatch({ type: 'BOARD_RENAME', boardId: board.id, title })}
+      />
     </div>
   );
 }

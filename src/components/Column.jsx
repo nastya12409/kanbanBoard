@@ -19,8 +19,7 @@ const Column = memo(function Column({
 
   // Видимые картки: useMemo пересчитывается только при изменении фильтров/карт
   const visibleIds = useMemo(() => {
-    const active =
-      filters.q || filters.priority || filters.tag || filters.due;
+    const active = filters.q || filters.priority || filters.tag || filters.due;
     if (!active) return column.cardIds;
     return column.cardIds.filter((id) => matchesFilters(board.cards[id], filters));
   }, [column.cardIds, board.cards, filters]);
@@ -44,11 +43,7 @@ const Column = memo(function Column({
   return (
     <section className="column" aria-label={`Колонка ${column.title}`}>
       <header className="column-head">
-        <EditableTitle
-          value={column.title}
-          className="column-title"
-          onSave={onRenameColumn}
-        />
+        <EditableTitle value={column.title} className="column-title" onSave={onRenameColumn} />
         {/* МОЯ ФИЧА: счётчик карточек в колонке */}
         <span className="count" title="Кількість карток">
           {visibleIds.length}

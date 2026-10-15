@@ -23,7 +23,7 @@ export function FilterBar({ board }) {
         else next.delete(key);
         return next;
       },
-      { replace: true } // не мусорить в истории браузера
+      { replace: true }, // не мусорить в истории браузера
     );
 
   const [text, setText] = useState(filters.q);
