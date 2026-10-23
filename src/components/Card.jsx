@@ -3,8 +3,6 @@ import { deadlineLabel, isOverdue, urgencyOf } from '../utils/filters';
 
 const PRIORITY_LABEL = { low: 'низький', medium: 'середній', high: 'високий' };
 
-// Карточка мемоизирована: правка одной не перерисовывает остальные.
-// data-overdue и data-urgency — атрибуты для тестов и стилей.
 const Card = memo(function Card({ card, onOpen }) {
   const urgency = urgencyOf(card.deadline);
   const overdue = isOverdue(card.deadline);
@@ -28,7 +26,7 @@ const Card = memo(function Card({ card, onOpen }) {
 
       {card.description && <p className="card-desc">{card.description}</p>}
 
-      {/* МОЯ ФИЧА: напоминание о дедлайне */}
+      {}
       {card.deadline && (
         <div className={`deadline deadline-${urgency}`}>
           <span className="deadline-date">{card.deadline}</span>

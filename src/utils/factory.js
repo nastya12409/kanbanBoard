@@ -7,8 +7,8 @@ export const createCard = (title) => ({
   id: uid(),
   title,
   description: '',
-  priority: 'medium', // low | medium | high
-  deadline: null, // 'YYYY-MM-DD' или null
+  priority: 'medium', 
+  deadline: null, 
   tags: [],
   assignee: '',
   createdAt: Date.now(),
@@ -29,7 +29,7 @@ export const createBoard = (title) => {
 
 export const initialState = { boards: {}, boardOrder: [] };
 
-// Пустая дошка для импорта: валидация структуры файла
+
 export const emptyBoard = () => ({
   id: uid(),
   title: 'Імпортована дошка',

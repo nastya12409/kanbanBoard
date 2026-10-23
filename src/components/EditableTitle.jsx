@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-// Заголовок с редактированием по двойному клику + кнопка с клавиатуры.
-// Enter сохраняет, Esc отменяет, blur сохраняет.
+
 export function EditableTitle({ value, as: Tag = 'h3', className, onSave }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);

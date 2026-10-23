@@ -3,8 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import { PRIORITIES } from '../utils/factory';
 
-// Фильтры живут в query-параметрах URL: ссылку можно кинуть в чат.
-// Текст по debounce (300 мс) не дёргает history на каждый символ.
+
 export function FilterBar({ board }) {
   const [params, setParams] = useSearchParams();
 
@@ -12,7 +11,7 @@ export function FilterBar({ board }) {
     q: params.get('q') ?? '',
     priority: params.get('priority') ?? '',
     tag: params.get('tag') ?? '',
-    due: params.get('due') ?? '', // overdue | today | none
+    due: params.get('due') ?? '', 
   };
 
   const setFilter = (key, value) =>
@@ -23,7 +22,7 @@ export function FilterBar({ board }) {
         else next.delete(key);
         return next;
       },
-      { replace: true }, // не мусорить в истории браузера
+      { replace: true }, 
     );
 
   const [text, setText] = useState(filters.q);
@@ -33,7 +32,7 @@ export function FilterBar({ board }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debounced]);
 
-  // Список тегов собирается со всех карточек доски
+  
   const tags = useMemo(() => {
     const set = new Set();
     Object.values(board.cards).forEach((c) => c.tags.forEach((t) => set.add(t)));
@@ -98,7 +97,7 @@ export function FilterBar({ board }) {
             setParams({}, { replace: true });
           }}
         >
-          Скинути фільтри
+          
         </button>
       )}
     </div>

@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
 import { isOverdue, urgencyOf } from '../utils/filters';
 
-// МОЯ ФИЧА: панель статистики доски.
-// Счётчик карточек по колонкам + прогресс-бар «виконано X%»
-// + предупреждение о «горящих» просроченных задачах.
 export default function BoardStats({ board }) {
   const stats = useMemo(() => {
     const cards = Object.values(board.cards);
@@ -20,7 +17,7 @@ export default function BoardStats({ board }) {
       count: board.columns[id].cardIds.length,
     }));
 
-    // Прогресс считаем по колонке с «Done» в названии (регнезависимо)
+    
     const doneCol = perColumn.find((c) => c.title.trim().toLowerCase() === 'done');
     const done = doneCol?.count ?? 0;
     const percent = total ? Math.round((done / total) * 100) : 0;

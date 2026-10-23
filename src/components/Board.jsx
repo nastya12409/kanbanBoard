@@ -16,7 +16,7 @@ import { FilterBar } from './FilterBar';
 import BoardStats from './BoardStats';
 import { useBoardsDispatch } from '../context/contexts';
 
-// Какой колонке принадлежит id (колонка или карточка)
+
 const findColumnId = (board, id) =>
   board.columns[id] ? id : board.columnOrder.find((c) => board.columns[c].cardIds.includes(id));
 
@@ -26,7 +26,6 @@ export default function Board({ board, filters }) {
   const [activeId, setActiveId] = useState(null);
 
   const sensors = useSensors(
-    // distance не даёт клику по карточке стать перетаскиванием
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
@@ -44,7 +43,7 @@ export default function Board({ board, filters }) {
     if (!from || !to) return;
     const toIds = board.columns[to].cardIds;
     const index = board.columns[over.id]
-      ? toIds.length // скинули на саму колонку — в конец
+      ? toIds.length 
       : toIds.indexOf(over.id);
     if (from === to && toIds.indexOf(active.id) === index) return;
     act({ type: 'CARD_MOVE', cardId: active.id, from, to, index });
@@ -52,7 +51,7 @@ export default function Board({ board, filters }) {
 
   const openCard = openCardId ? board.cards[openCardId] : null;
 
-  // Закрытие обёрнуто в useCallback — иначе эффект Modal переподписывается каждый рендер
+
   const onClose = useCallback(() => setOpenCardId(null), []);
 
   const filtersKey = useMemo(
@@ -64,7 +63,7 @@ export default function Board({ board, filters }) {
     <>
       <FilterBar board={board} />
 
-      {/* МОЯ ФИЧА: статистика и прогресс доски */}
+      {}
       <BoardStats board={board} />
 
       <DndContext
@@ -96,7 +95,7 @@ export default function Board({ board, filters }) {
               if (title?.trim()) act({ type: 'COLUMN_ADD', title: title.trim() });
             }}
           >
-            + Додати колонку
+        
           </button>
 
           <DragOverlay>

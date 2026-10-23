@@ -3,7 +3,7 @@ import { withHistory } from './useUndoRedo';
 import { reducer } from '../utils/reducer';
 import { initialState } from '../utils/factory';
 
-// Тести на чисту функцію withHistory — без рендерингу
+
 const historyReducer = withHistory(reducer);
 
 const init = () => ({ past: [], present: initialState, future: [] });

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { reducer } from './reducer';
 import { initialState } from './factory';
 
-// Первичная сборка: создаем дошку и колонки
+
 const setup = () => {
   const state = reducer(initialState, { type: 'BOARD_ADD', title: 'Робота' });
   const boardId = state.boardOrder[0];
@@ -44,7 +44,7 @@ describe('reducer: картки', () => {
       title: 'Задача',
     });
     expect(next.boards[boardId].columns[todo].cardIds).toHaveLength(1);
-    // вихідний стан не змінився (reducer чистий)
+    
     expect(state.boards[boardId].columns[todo].cardIds).toHaveLength(0);
   });
 

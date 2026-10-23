@@ -15,12 +15,11 @@ function loadState() {
   }
 }
 
-// Провайдер данных: держит reducer с историей undo/redo
-// и сохраняет present в localStorage.
+
 export function BoardsProvider({ children }) {
   const { state, dispatch, undo, redo, canUndo, canRedo } = useUndoRedo(reducer, loadState);
 
-  // Сохраняем только present — историю в storage не пишем
+  
   useEffect(() => {
     try {
       localStorage.setItem(KEY, JSON.stringify(state));
@@ -29,7 +28,7 @@ export function BoardsProvider({ children }) {
     }
   }, [state]);
 
-  // Ctrl+Z / Ctrl+Shift+Z, но не когда печатаем в поле ввода
+  
   useEffect(() => {
     const onKey = (e) => {
       const tag = e.target.tagName;

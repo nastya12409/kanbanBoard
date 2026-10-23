@@ -27,7 +27,7 @@ function Header() {
 }
 
 export default function App() {
-  // Переключатель темы: атрибут на <html>, поэтому CSS-переменные мгновенно меняются
+  
   useEffect(() => {
     document.title = 'TaskFlow — канбан-дошка';
   }, []);

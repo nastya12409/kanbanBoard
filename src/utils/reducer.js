@@ -1,17 +1,16 @@
-// Чистый reducer: (state, action) => newState.
-// Не трогает localStorage и не мутирует входной state.
+
 import { createBoard, createCard, createColumn } from './factory';
 
-// Функция-хелпер: обновляет одну дошку, не меняя остальные
+
 const updateBoard = (state, boardId, fn) => {
   const board = state.boards[boardId];
-  if (!board) return state; // неизвестная дошка: состояние не меняется
+  if (!board) return state; 
   return { ...state, boards: { ...state.boards, [boardId]: fn(board) } };
 };
 
 export function reducer(state, action) {
   switch (action.type) {
-    // ---- дошки ----
+    
     case 'BOARD_ADD': {
       const board = createBoard(action.title);
       return {
@@ -73,7 +72,7 @@ export function reducer(state, action) {
         };
       });
 
-    // ---- картки ----
+    
     case 'CARD_ADD':
       return updateBoard(state, action.boardId, (b) => {
         const card = createCard(action.title);

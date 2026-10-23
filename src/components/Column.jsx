@@ -17,7 +17,7 @@ const Column = memo(function Column({
   const [draft, setDraft] = useState('');
   const { setNodeRef } = useDroppable({ id: column.id });
 
-  // Видимые картки: useMemo пересчитывается только при изменении фильтров/карт
+  
   const visibleIds = useMemo(() => {
     const active = filters.q || filters.priority || filters.tag || filters.due;
     if (!active) return column.cardIds;
@@ -68,7 +68,7 @@ const Column = memo(function Column({
               key={id}
               card={board.cards[id]}
               onOpen={onOpen}
-              disabled={hasFilters} // при фильтрах порядок индексов другой
+              disabled={hasFilters} 
             />
           ))}
         </ul>

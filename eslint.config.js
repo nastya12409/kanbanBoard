@@ -24,11 +24,11 @@ export default [
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
-  // Тести: свои глобальные переменные Vitest
+  
   {
     files: ['**/*.test.{js,jsx}', 'src/test/**'],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
-  // Prettier последним — отключает правила форматирования
+  
   prettier,
 ];

@@ -1,7 +1,6 @@
 import { createContext, useContext } from 'react';
 
-// Контексты живут отдельно от компонентов-провайдеров:
-// так Fast Refresh не теряет состояние при hot-reload.
+
 export const StateContext = createContext(null);
 export const DispatchContext = createContext(null);
 export const HistoryContext = createContext(null);

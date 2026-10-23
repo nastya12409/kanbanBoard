@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Modal } from './Modal';
 import { PRIORITIES } from '../utils/factory';
 
-// Форма редактирования карточки: открывается по клику на карточку.
-// Заголовок обязателен, теги вводятся через запятую.
+
 export function CardModal({ card, onClose, onSave, onDelete }) {
   const [form, setForm] = useState({
     title: card.title,
@@ -93,7 +92,7 @@ export function CardModal({ card, onClose, onSave, onDelete }) {
               if (window.confirm('Видалити картку?')) onDelete();
             }}
           >
-            Видалити
+            
           </button>
           <div className="spacer" />
           <button type="button" className="btn ghost" onClick={onClose}>

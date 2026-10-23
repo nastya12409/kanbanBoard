@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-// Чтение из localStorage при первом рендере + запись при каждой изменении
+
 export function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {

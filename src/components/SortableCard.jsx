@@ -3,7 +3,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import Card from './Card';
 
-// Карточку можно тянуть: useSortable вешает слушатели и стиль сдвига
+
 const SortableCard = memo(function SortableCard({ card, onOpen, disabled }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: card.id,

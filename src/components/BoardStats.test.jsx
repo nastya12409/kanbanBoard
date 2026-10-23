@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import BoardStats from './BoardStats';
 
-// Доска-фікстура: 4 картки, з них 1 у Done, 1 прострочена
+
 const board = {
   id: 'b1',
   title: 'Тест',

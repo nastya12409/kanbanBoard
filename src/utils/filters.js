@@ -1,12 +1,9 @@
-// Чистые функции фильтрации и дат — легко тестировать без UI
 
-// Формат YYYY-MM-DD в локальном часовом поясе
 export const today = () => new Date().toLocaleDateString('sv-SE');
 
 export const isOverdue = (deadline) => Boolean(deadline) && deadline < today();
 
-// ===== МОЯ ФИЧА: напоминания о дедлайнах =====
-// Сколько дней осталось до дедлайна (0 — сегодня, -N — просрочено)
+
 export const daysLeft = (deadline) => {
   if (!deadline) return null;
   const now = new Date(today() + 'T00:00:00');
@@ -14,7 +11,7 @@ export const daysLeft = (deadline) => {
   return Math.round((due - now) / 86400000);
 };
 
-// Класс срочности: overdue | today | soon (<=3 дня) | ok | none
+
 export const urgencyOf = (deadline) => {
   const d = daysLeft(deadline);
   if (d === null) return 'none';
@@ -24,7 +21,7 @@ export const urgencyOf = (deadline) => {
   return 'ok';
 };
 
-// Человекочитаемая подпись к дедлайну
+
 export const deadlineLabel = (deadline) => {
   const d = daysLeft(deadline);
   if (d === null) return '';

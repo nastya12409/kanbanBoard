@@ -38,7 +38,7 @@ export default function HomePage() {
     } catch (err) {
       setError(err.message);
     }
-    e.target.value = ''; // можно выбрать тот же файл повторно
+    e.target.value = ''; 
   };
 
   return (

@@ -1,4 +1,4 @@
-/* ===== Темы: один набор переменных, переключение через data-theme ===== */
+
 :root {
   --bg: #f5f6f8;
   --surface: #ffffff;
@@ -503,7 +503,7 @@ main {
   color: var(--danger);
 }
 
-/* ===== МОЯ ФИЧА: напоминание о дедлайне ===== */
+
 .deadline {
   display: flex;
   align-items: center;
@@ -589,7 +589,7 @@ main {
   color: var(--muted);
 }
 
-/* ===== Форма добавления карточки ===== */
+
 .add-card {
   display: flex;
   gap: 6px;
@@ -606,7 +606,7 @@ main {
   padding: 6px 12px;
 }
 
-/* ===== Модалка ===== */
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -680,7 +680,7 @@ main {
   flex: 1;
 }
 
-/* ===== Адаптив от 360px ===== */
+
 @media (max-width: 480px) {
   main {
     padding: 10px;

@@ -7,8 +7,7 @@ const systemTheme = () =>
     ? 'dark'
     : 'light';
 
-// Провайдер темы: выбор хранится в localStorage,
-// а при первом заходе берётся из системных настроек.
+
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useLocalStorage('theme', systemTheme());
 

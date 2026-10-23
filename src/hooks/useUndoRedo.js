@@ -1,8 +1,6 @@
 import { useCallback, useMemo, useReducer } from 'react';
 
-// Оборачивает reducer в "историю": { past, present, future }.
-// Любая действие кладёт текущий стан в past и чистит future.
-// Ограничение — LIMIT шагов (вимога: щонайменше 10, взято 50).
+
 const LIMIT = 50;
 
 export function withHistory(reducer, limit = LIMIT) {
@@ -25,7 +23,7 @@ export function withHistory(reducer, limit = LIMIT) {
         };
       default: {
         const next = reducer(present, action);
-        if (next === present) return history; // дія нічого не змінила
+        if (next === present) return history; 
         return {
           past: [...past, present].slice(-limit),
           present: next,
